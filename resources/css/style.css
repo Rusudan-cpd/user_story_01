@@ -1,0 +1,22 @@
+body {
+    background-color: #e7f7fa;
+}
+
+.navbar {
+    background-color: #0b7285 !important;
+}
+
+.navbar .nav-link {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.navbar .navbar-brand {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+footer {
+    background-color: #12343b !important;
+}
