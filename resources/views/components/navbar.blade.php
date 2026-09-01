@@ -21,10 +21,37 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold fs-5" href="{{ route('article.index') }}">
+                        Tutti gli annunci
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white fw-bold fs-5"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown">
+                        Categorie
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        @foreach ($categories as $category)
+                            <li>
+                                <a class="dropdown-item"
+                                   href="{{ route('article.category', $category) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+
                 @auth
 
                     <li class="nav-item">
-                      <a class="nav-link text-white fw-bold fs-5" href="{{ route('article.create') }}">
+                        <a class="nav-link text-white fw-bold fs-5"
+                           href="{{ route('article.create') }}">
                             Inserisci annuncio
                         </a>
                     </li>
@@ -32,7 +59,6 @@
                     <li class="nav-item">
                         <form method="POST" action="/logout">
                             @csrf
-
                             <button type="submit"
                                     class="nav-link text-white fw-bold fs-5 border-0 bg-transparent">
                                 Logout
