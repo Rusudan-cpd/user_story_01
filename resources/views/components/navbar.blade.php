@@ -22,7 +22,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white fw-bold fs-5" href="{{ route('article.index') }}">
+                    <a class="nav-link text-white fw-bold fs-5"
+                       href="{{ route('article.index') }}">
                         Tutti gli annunci
                     </a>
                 </li>
@@ -53,6 +54,16 @@
                         <a class="nav-link text-white fw-bold fs-5"
                            href="{{ route('article.create') }}">
                             Inserisci annuncio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold fs-5"
+                           href="{{ route('revisor.index') }}">
+                            Revisor
+                            <span class="badge bg-danger">
+                                {{ \App\Models\Article::toBeRevisedCount() }}
+                            </span>
                         </a>
                     </li>
 

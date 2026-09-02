@@ -14,7 +14,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::latest()->paginate(6);
+        $articles = Article::where('is_accepted', true)->latest()->paginate(6);
 
         return view('article.index', compact('articles'));
     }
@@ -26,7 +26,7 @@ class ArticleController extends Controller
 
     public function category(Category $category)
     {
-        $articles = Article::where('category_id', $category->id)->latest()->paginate(6);
+        $articles = Article::where('category_id', $category->id)->where('is_accepted', true)->latest()->paginate(6);
 
         return view('article.category', compact('articles', 'category'));
     }

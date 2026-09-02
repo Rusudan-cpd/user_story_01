@@ -56,3 +56,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## traccia user store 3
+
+- Creazione del ruolo revisore
+- Comando Artisan per rendere un utente revisore
+- Dashboard dedicata ai revisori
+- Visualizzazione degli annunci da revisionare
+- Possibilità di accettare o rifiutare un annuncio
+- Gestione dello stato dell'annuncio tramite `is_accepted`
+- Vista "Lavora con noi"
+- Richiesta per diventare revisore tramite form
+- Invio della richiesta tramite email
+- Possibilità di annullare l'ultima operazione (extra)
