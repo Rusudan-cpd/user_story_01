@@ -8,13 +8,30 @@ body {
 
 .navbar .nav-link {
     color: white;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 400;
 }
 
 .navbar .navbar-brand {
     font-size: 19px;
     font-weight: 600;
+}
+
+.navbar .search-form {
+    margin-left: 15px;
+}
+
+.navbar .search-input {
+    width: 170px;
+    border-radius: 20px;
+    border: none;
+    padding: 6px 12px;
+}
+
+.navbar .search-button {
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.9rem;
 }
 
 footer {

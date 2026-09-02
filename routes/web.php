@@ -9,6 +9,7 @@ Route::get('/', [PublicController::class, 'home'])->name('homepage');
 Route::get('/create/article', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
 Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/search', [ArticleController::class, 'search'])->name('article.search');
 Route::get('/category/{category}', [ArticleController::class, 'category'])->name('article.category');
 Route::get('/revisor', [RevisorController::class, 'index'])->middleware('is_revisor')->name('revisor.index');
 Route::patch('/revisor/{article}/accept', [RevisorController::class, 'accept'])->name('revisor.accept');

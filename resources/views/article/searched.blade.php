@@ -2,7 +2,9 @@
 
     <div class="container py-5">
 
-        <h1 class="text-center mb-4">Tutti gli annunci</h1>
+        <h1 class="text-center mb-4">
+            Risultati per: "{{ $query }}"
+        </h1>
 
         <div class="row g-4">
 
@@ -15,7 +17,7 @@
             @empty
 
                 <p class="text-center">
-                    Non ci sono ancora annunci.
+                    Nessun annuncio trovato.
                 </p>
 
             @endforelse

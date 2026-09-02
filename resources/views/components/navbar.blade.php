@@ -16,20 +16,20 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link text-white fw-bold fs-5" href="/">
+                    <a class="nav-link" href="/">
                         Home
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white fw-bold fs-5"
+                    <a class="nav-link"
                        href="{{ route('article.index') }}">
                         Tutti gli annunci
                     </a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white fw-bold fs-5"
+                    <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
                        data-bs-toggle="dropdown">
@@ -48,17 +48,38 @@
                     </ul>
                 </li>
 
+                {{-- RICERCA --}}
+                <li class="nav-item d-flex align-items-center">
+                    <form action="{{ route('article.search') }}" method="GET"
+                          class="d-flex search-form">
+
+                        <input
+                             type="text"
+                             name="query"
+                             class="form-control search-input"
+                             placeholder="Cerca"
+                             required...
+                        >
+
+                        <button type="submit"
+                                class="btn btn-light search-button ms-2">
+                            Cerca
+                        </button>
+
+                    </form>
+                </li>
+
                 @auth
 
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold fs-5"
+                        <a class="nav-link"
                            href="{{ route('article.create') }}">
                             Inserisci annuncio
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold fs-5"
+                        <a class="nav-link"
                            href="{{ route('revisor.index') }}">
                             Revisor
                             <span class="badge bg-danger">
@@ -70,8 +91,9 @@
                     <li class="nav-item">
                         <form method="POST" action="/logout">
                             @csrf
+
                             <button type="submit"
-                                    class="nav-link text-white fw-bold fs-5 border-0 bg-transparent">
+                                    class="nav-link border-0 bg-transparent">
                                 Logout
                             </button>
                         </form>
@@ -80,13 +102,13 @@
                 @else
 
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold fs-5" href="/login">
+                        <a class="nav-link" href="/login">
                             Login
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold fs-5" href="/register">
+                        <a class="nav-link" href="/register">
                             Registrati
                         </a>
                     </li>

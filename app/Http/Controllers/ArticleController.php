@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -30,4 +31,17 @@ class ArticleController extends Controller
 
         return view('article.category', compact('articles', 'category'));
     }
+
+   public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    if (!$query) {
+        return redirect()->route('article.index');
+    }
+
+     $articles = Article::search($query)->where('is_accepted', true)->paginate(6);
+
+    return view('article.searched', compact('articles', 'query'));
+}
 }
