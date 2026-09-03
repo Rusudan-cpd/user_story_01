@@ -11,20 +11,20 @@
 <body>
 
     <div>
-        <h1>Hai una nuova richiesta</h1>
+        <h1>{{ __('ui.newRequest') }}</h1>
 
-        <h3>Un utente ha chiesto di lavorare con noi</h3>
+        <h3>{{ __('ui.workRequest') }}</h3>
 
         <ul>
-            <li>Nome: {{ $user->name }}</li>
-            <li>Email: {{ $user->email }}</li>
+            <li>{{ __('ui.name') }} {{ $user->name }}</li>
+            <li>{{ __('ui.email') }} {{ $user->email }}</li>
             <li>
-                Richiesta: L'utente {{ $user->name }} vuole diventare revisore
+                {{ __('ui.revisorRequest', ['name' => $user->name]) }}
             </li>
         </ul>
 
         <a href="{{ route('make.revisor', ['user' => $user]) }}">
-            Rendi revisore
+            {{ __('ui.makeRevisor') }}
         </a>
     </div>
 

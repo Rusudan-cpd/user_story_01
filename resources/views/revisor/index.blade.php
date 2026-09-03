@@ -38,12 +38,12 @@
 
                         <h1>{{ $article_to_check->title }}</h1>
 
-                        <h3>Autore: {{ $article_to_check->user->name }}</h3>
+                        <h3>{{ __('ui.author') }} {{ $article_to_check->user->name }}</h3>
 
                         <h4>{{ $article_to_check->price }}€</h4>
 
                         <h4 class="fst-italic text-muted">
-                            {{ $article_to_check->category->name }}
+                            {{ __("ui.{$article_to_check->category->name}") }}
                         </h4>
 
                         <p class="h6">
@@ -60,7 +60,7 @@
                             @method('PATCH')
 
                             <button class="btn btn-danger py-2 px-5 fw-bold">
-                                Rifiuta
+                                {{ __('ui.reject') }}
                             </button>
 
                         </form>
@@ -71,7 +71,7 @@
                             @method('PATCH')
 
                             <button class="btn btn-success py-2 px-5 fw-bold">
-                                Accetta
+                                {{ __('ui.accept') }}
                             </button>
 
                         </form>
@@ -84,7 +84,7 @@
                                 @method('PATCH')
 
                                 <button class="btn btn-warning py-2 px-5 fw-bold">
-                                    Annulla
+                                    {{ __('ui.undo') }}
                                 </button>
 
                             </form>
@@ -104,11 +104,11 @@
                 <div class="col-12">
 
                     <h1 class="fst-italic display-4">
-                        Nessun articolo da revisionare
+                        {{ __('ui.noArticlesToReview') }}
                     </h1>
 
                     <a href="{{ route('homepage') }}" class="mt-5 btn btn-success">
-                        Torna all'homepage
+                        {{ __('ui.backHome') }}
                     </a>
 
                 </div>

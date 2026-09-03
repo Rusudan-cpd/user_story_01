@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 col-lg-5">
 
-                <h1 class="text-center mb-4">Accedi</h1>
+             <h1 class="text-center mb-4">{{ __('ui.loginTitle') }}</h1>
 
                 <form method="POST" action="/login">
 
@@ -47,9 +47,9 @@
                         </div>
                     @endif
 
-                    <button type="submit" class="btn btn-primary w-100">
-                        Accedi
-                    </button>
+                   <button type="submit" class="btn btn-primary w-100">
+                        {{ __('ui.loginTitle') }}
+                   </button>
 
                 </form>
 

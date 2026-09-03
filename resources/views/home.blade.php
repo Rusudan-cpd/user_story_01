@@ -7,8 +7,8 @@
     @endif
 
     <div class="container py-5">
-        <h1 class="text-center">Benvenuti su Presto Travel</h1>
-        <p class="text-center">Trova e pubblica i tuoi annunci di viaggio.</p>
+        <h1 class="text-center">{{ __('ui.hello') }}</h1>
+        <p class="text-center">{{ __('ui.allArticles') }}</p>
 
         <div class="row g-4 mt-4">
             @forelse ($articles as $article)

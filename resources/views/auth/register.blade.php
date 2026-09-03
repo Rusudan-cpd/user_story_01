@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 col-lg-5">
 
-                <h1 class="text-center mb-4">Registrati</h1>
+                <h1 class="text-center mb-4">{{ __('ui.registerTitle') }}</h1>
 
                 <form method="POST" action="/register">
 
@@ -12,7 +12,7 @@
 
                     <div class="mb-3">
                         <label for="name" class="form-label">
-                            Nome
+                            {{ __('ui.name') }}
                         </label>
 
                         <input
@@ -26,7 +26,7 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">
-                            Email
+                            {{ __('ui.email') }}
                         </label>
 
                         <input
@@ -40,7 +40,7 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">
-                            Password
+                            {{ __('ui.password') }}
                         </label>
 
                         <input
@@ -53,7 +53,7 @@
 
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">
-                            Conferma password
+                            {{ __('ui.confirmPassword') }}
                         </label>
 
                         <input
@@ -75,7 +75,7 @@
                     @endif
 
                     <button type="submit" class="btn btn-primary w-100">
-                        Registrati
+                        {{ __('ui.registerTitle') }}
                     </button>
 
                 </form>

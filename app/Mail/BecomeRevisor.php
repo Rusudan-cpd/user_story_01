@@ -23,7 +23,9 @@ class BecomeRevisor extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Richiesta revisore da ' . $this->user->name,
+            subject: __('ui.revisorMailSubject', [
+                'name' => $this->user->name,
+            ]),
         );
     }
 

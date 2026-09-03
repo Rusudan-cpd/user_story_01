@@ -23,10 +23,10 @@ class RevisorController extends Controller
 
         session()->put('last_revisor_action', $article->id);
 
-        return redirect()->back()->with(
-            'message',
-            "Hai accettato l'articolo {$article->title}"
-        );
+      return redirect()->back()->with(
+          'message',
+         __('ui.revisorRequestSent')
+);
     }
 
     public function reject(Article $article)
@@ -63,12 +63,13 @@ class RevisorController extends Controller
 
     public function becomeRevisor()
     {
-        Mail::to('admin@presto.it')
-            ->send(new BecomeRevisor(auth()->user()));
+       Mail::to('admin@presto.it')
+        ->locale(session('locale', 'it'))
+        ->send(new BecomeRevisor(auth()->user()));
 
         return redirect()->back()->with(
             'message',
-            'La tua richiesta è stata inviata'
+            __('ui.revisorRequestSent')
         );
     }
 

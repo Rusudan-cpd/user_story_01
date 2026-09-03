@@ -5,6 +5,10 @@
             ✈️ Presto Travel
         </a>
 
+        <x-_locale lang="it"/>
+        <x-_locale lang="uk"/>
+        <x-_locale lang="es"/>
+
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">
@@ -17,14 +21,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="/">
-                        Home
+                        {{ __('ui.home') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('article.index') }}">
-                        Tutti gli annunci
+                        {{ __('ui.allArticles') }}
                     </a>
                 </li>
 
@@ -33,7 +37,7 @@
                        href="#"
                        role="button"
                        data-bs-toggle="dropdown">
-                        Categorie
+                        {{ __('ui.categories') }}
                     </a>
 
                     <ul class="dropdown-menu">
@@ -41,7 +45,7 @@
                             <li>
                                 <a class="dropdown-item"
                                    href="{{ route('article.category', $category) }}">
-                                    {{ $category->name }}
+                                    {{ __("ui.$category->name") }}
                                 </a>
                             </li>
                         @endforeach
@@ -54,16 +58,16 @@
                           class="d-flex search-form">
 
                         <input
-                             type="text"
-                             name="query"
-                             class="form-control search-input"
-                             placeholder="Cerca"
-                             required...
+                            type="text"
+                            name="query"
+                            class="form-control search-input"
+                            placeholder="{{ __('ui.search') }}"
+                            required
                         >
 
                         <button type="submit"
                                 class="btn btn-light search-button ms-2">
-                            Cerca
+                            {{ __('ui.search') }}
                         </button>
 
                     </form>
@@ -74,14 +78,14 @@
                     <li class="nav-item">
                         <a class="nav-link"
                            href="{{ route('article.create') }}">
-                            Inserisci annuncio
+                            {{ __('ui.insertArticle') }}
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link"
                            href="{{ route('revisor.index') }}">
-                            Revisor
+                            {{ __('ui.revisor') }}
                             <span class="badge bg-danger">
                                 {{ \App\Models\Article::toBeRevisedCount() }}
                             </span>
@@ -94,7 +98,7 @@
 
                             <button type="submit"
                                     class="nav-link border-0 bg-transparent">
-                                Logout
+                                {{ __('ui.logout') }}
                             </button>
                         </form>
                     </li>
@@ -103,13 +107,13 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="/login">
-                            Login
+                            {{ __('ui.login') }}
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="/register">
-                            Registrati
+                            {{ __('ui.register') }}
                         </a>
                     </li>
 

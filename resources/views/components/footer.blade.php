@@ -6,7 +6,7 @@
 
     <a href="{{ route('become.revisor') }}"
        class="btn btn-outline-light">
-        Lavora con noi
+        {{ __('ui.workWithUs') }}
     </a>
 
 </footer>

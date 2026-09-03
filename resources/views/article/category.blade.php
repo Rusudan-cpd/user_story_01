@@ -1,7 +1,7 @@
 <x-layout>
 
     <div class="container py-5">
-        <h1 class="text-center mb-4">{{ $category->name }}</h1>
+       <h1 class="text-center mb-4">{{ __("ui.$category->name") }}</h1>
 
         <div class="row g-4">
             @forelse ($articles as $article)

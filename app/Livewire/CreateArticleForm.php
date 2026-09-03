@@ -40,7 +40,7 @@ class CreateArticleForm extends Component
             'user_id' => Auth::id(),
         ]);
 
-        session()->flash('success', 'Annuncio inserito con successo!');
+        session()->flash('success', __('ui.successArticle'));
 
         $this->reset([
             'title',

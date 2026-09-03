@@ -17,3 +17,4 @@ Route::patch('/revisor/{article}/reject', [RevisorController::class, 'reject'])-
 Route::patch('/revisor/undo', [RevisorController::class, 'undo'])->middleware('is_revisor')->name('revisor.undo');
 Route::get('/become/revisor', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('become.revisor');
 Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
+Route::post('/language/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
