@@ -44,4 +44,13 @@ class ArticleController extends Controller
 
     return view('article.searched', compact('articles', 'query'));
 }
+
+  public function removeImage($key)
+  {
+      if (in_array($key, array_keys($this->images))) {
+        unset($this->images[$key]);
+    }
+ }
+
+ 
 }

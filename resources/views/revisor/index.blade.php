@@ -16,17 +16,39 @@
 
                     <div class="row justify-content-center">
 
-                        @for($i = 0; $i < 6; $i++)
+                        @if($article_to_check->images->count() > 0)
 
-                            <div class="col-6 col-md-4 mb-4 text-center">
+                            @foreach($article_to_check->images as $image)
 
-                                <img src="https://picsum.photos/300"
-                                     class="img-fluid rounded shadow"
-                                     alt="Immagine segnaposto">
+                                <div class="col-6 col-md-4 mb-4 text-center">
 
-                            </div>
+                                    <img
+                                        src="{{ \Illuminate\Support\Facades\Storage::url($image->path) }}"
+                                        class="img-fluid rounded shadow"
+                                        alt="Immagine articolo"
+                                    >
 
-                        @endfor
+                                </div>
+
+                            @endforeach
+
+                        @else
+
+                            @for($i = 0; $i < 6; $i++)
+
+                                <div class="col-6 col-md-4 mb-4 text-center">
+
+                                    <img
+                                        src="https://picsum.photos/300"
+                                        class="img-fluid rounded shadow"
+                                        alt="Immagine segnaposto"
+                                    >
+
+                                </div>
+
+                            @endfor
+
+                        @endif
 
                     </div>
 
@@ -38,7 +60,10 @@
 
                         <h1>{{ $article_to_check->title }}</h1>
 
-                        <h3>{{ __('ui.author') }} {{ $article_to_check->user->name }}</h3>
+                        <h3>
+                            {{ __('ui.author') }}
+                            {{ $article_to_check->user->name }}
+                        </h3>
 
                         <h4>{{ $article_to_check->price }}€</h4>
 
@@ -54,39 +79,42 @@
 
                     <div class="d-flex justify-content-around align-items-center pb-4">
 
-                        <form action="{{ route('revisor.reject', $article_to_check) }}" method="POST">
-
+                        <form
+                            action="{{ route('revisor.reject', $article_to_check) }}"
+                            method="POST"
+                        >
                             @csrf
                             @method('PATCH')
 
                             <button class="btn btn-danger py-2 px-5 fw-bold">
                                 {{ __('ui.reject') }}
                             </button>
-
                         </form>
 
-                        <form action="{{ route('revisor.accept', $article_to_check) }}" method="POST">
-
+                        <form
+                            action="{{ route('revisor.accept', $article_to_check) }}"
+                            method="POST"
+                        >
                             @csrf
                             @method('PATCH')
 
                             <button class="btn btn-success py-2 px-5 fw-bold">
                                 {{ __('ui.accept') }}
                             </button>
-
                         </form>
 
                         @if(session('last_revisor_action'))
 
-                            <form action="{{ route('revisor.undo') }}" method="POST">
-
+                            <form
+                                action="{{ route('revisor.undo') }}"
+                                method="POST"
+                            >
                                 @csrf
                                 @method('PATCH')
 
                                 <button class="btn btn-warning py-2 px-5 fw-bold">
                                     {{ __('ui.undo') }}
                                 </button>
-
                             </form>
 
                         @endif
@@ -107,7 +135,10 @@
                         {{ __('ui.noArticlesToReview') }}
                     </h1>
 
-                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-success">
+                    <a
+                        href="{{ route('homepage') }}"
+                        class="mt-5 btn btn-success"
+                    >
                         {{ __('ui.backHome') }}
                     </a>
 

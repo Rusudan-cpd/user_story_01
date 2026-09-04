@@ -56,4 +56,6 @@ return [
     'password' => 'Password',
     'confirmPassword' => 'Confirm password',
     'loginTitle' => 'Login',
+    'imageArticle' => 'Imagen del artículo',
+    'imagePlaceholder' => 'Imagen de marcador de posición',
 ];

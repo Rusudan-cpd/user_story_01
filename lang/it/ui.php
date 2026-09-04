@@ -48,4 +48,6 @@ return [
     'password' => 'Password',
     'confirmPassword' => 'Conferma password',
     'loginTitle' => 'Accedi',
+    'imageArticle' => 'Immagine articolo',
+    'imagePlaceholder' => 'Immagine segnaposto',
 ];

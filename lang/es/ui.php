@@ -56,4 +56,6 @@ return [
     'password' => 'Contraseña',
     'confirmPassword' => 'Confirmar contraseña',
     'loginTitle' => 'Iniciar sesión',
+    'imageArticle' => 'Imagen del artículo',
+    'imagePlaceholder' => 'Imagen de marcador de posición',
 ];
