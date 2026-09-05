@@ -13,13 +13,12 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
-    public function index()
-    {
-        $articles = Article::where('is_accepted', true)->latest()->paginate(6);
+     public function index()
+   {
+         $articles = Article::with('images') ->where('is_accepted', true)->latest()->paginate(6);
 
-        return view('article.index', compact('articles'));
-    }
-
+       return view('article.index', compact('articles'));
+   }
     public function show(Article $article)
     {
         return view('article.show', compact('article'));

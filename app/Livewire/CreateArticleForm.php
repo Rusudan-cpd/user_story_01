@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Jobs\ResizeImage;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -34,19 +35,20 @@ class CreateArticleForm extends Component
             'category_id' => 'required|exists:categories,id',
         ];
     }
-  public function updatedTemporaryImages()
-  {
+
+    public function updatedTemporaryImages()
+    {
         $this->validate([
-          'temporary_images.*' => 'image|max:1024',
-         'temporary_images' => 'max:6',
-    ]);
+            'temporary_images.*' => 'image|max:1024',
+            'temporary_images' => 'max:6',
+        ]);
 
-    $this->images = [];
+        $this->images = [];
 
-    foreach ($this->temporary_images as $image) {
-        $this->images[] = $image;
+        foreach ($this->temporary_images as $image) {
+            $this->images[] = $image;
+        }
     }
- }
 
     public function removeImage($key)
     {
@@ -68,12 +70,18 @@ class CreateArticleForm extends Component
         ]);
 
         if ($this->images) {
-            foreach ($this->images as $image) {
-                $path = $image->store('images', 'public');
 
-                $this->article->images()->create([
+            foreach ($this->images as $image) {
+
+                $newFileName = "articles/{$this->article->id}";
+
+                $path = $image->store($newFileName, 'public');
+
+                $newImage = $this->article->images()->create([
                     'path' => $path,
                 ]);
+
+                dispatch(new ResizeImage(300, 300, $newImage->path));
             }
         }
 

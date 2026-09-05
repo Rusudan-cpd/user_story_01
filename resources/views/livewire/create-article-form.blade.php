@@ -8,8 +8,7 @@
     <div class="card bg-dark text-white shadow mx-auto" style="max-width: 600px;">
         <div class="card-body p-4">
             <h2 class="text-center mb-4">{{ __('ui.insertArticle') }}</h2>
-
-            <form wire:submit="save">
+           <form wire:submit="save">
 
                 <div class="mb-3">
                     <label for="title" class="form-label">{{ __('ui.title') }}</label>

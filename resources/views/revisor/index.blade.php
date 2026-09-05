@@ -23,7 +23,7 @@
                                 <div class="col-6 col-md-4 mb-4 text-center">
 
                                     <img
-                                        src="{{ \Illuminate\Support\Facades\Storage::url($image->path) }}"
+                                       src="{{ $image->getUrl(300, 300) }}"
                                         class="img-fluid rounded shadow"
                                         alt="Immagine articolo"
                                     >
